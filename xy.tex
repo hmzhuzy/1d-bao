@@ -38,18 +38,18 @@
 \title{Reconstruction of BAO Peaks in 1+1 Dimensions}
 %\title{Reconstruction with the Lagrangian Displacement in 1+1 Dimensions}
 
-\author{Hong-Ming Zhu}
-\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
-\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
-
-\author{Ue-Li Pen}
-\affiliation{Canadian Institute for Theoretical Astrophysics, University of Toronto, 60 St. George Street, Toronto, Ontario M5S 3H8, Canada}
-\affiliation{Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada}
-\affiliation{Canadian Institute for Advanced Research, CIFAR Program in Gravitation and Cosmology, Toronto, Ontario M5G 1Z8, Canada}
-\affiliation{Perimeter Institute for Theoretical Physics, 31 Caroline Street North, Waterloo, Ontario, N2L 2Y5, Canada}
-
-\author{Matthew McQuinn}
-\affiliation{Department of Astronomy, University of Washington, Seattle, WA 98195, USA}
+%\author{Hong-Ming Zhu}
+%\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
+%\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
+%
+%\author{Ue-Li Pen}
+%\affiliation{Canadian Institute for Theoretical Astrophysics, University of Toronto, 60 St. George Street, Toronto, Ontario M5S 3H8, Canada}
+%\affiliation{Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada}
+%\affiliation{Canadian Institute for Advanced Research, CIFAR Program in Gravitation and Cosmology, Toronto, Ontario M5G 1Z8, Canada}
+%\affiliation{Perimeter Institute for Theoretical Physics, 31 Caroline Street North, Waterloo, Ontario, N2L 2Y5, Canada}
+%
+%\author{Matthew McQuinn}
+%\affiliation{Department of Astronomy, University of Washington, Seattle, WA 98195, USA}
 
 
 \date{\today}
@@ -89,8 +89,13 @@ we calculate the covariance matrix and information content.
 (1) Solve the displacement $\Psi(q)$ field by ordering of the mass elements.
 
 (2) Take the differential derivative of $\Psi(q)$ to get the reconstructed
-density field $\delta_r(x)=\partial\Psi(q)/\partial q$.
+density field $\delta_r(x)=-\partial\Psi(q)/\partial q$.
 
+or the density field should be given as
+\bea
+\delta_r(x)=\frac{1}{1+\partial\Psi(q)/\partial q} - 1,
+\eea
+where to linear order $\delta_r(x)$ is given by $-\partial\Psi(q)/\partial q$?
 
 \subsection{Lagrangian displacement}
 
