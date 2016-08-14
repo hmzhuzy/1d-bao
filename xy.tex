@@ -38,23 +38,23 @@
 
 \title{Reconstruction of Baryon Acoustic Oscillations in 1+1 Dimensions}
 
-\author{Hong-Ming Zhu}
-\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
-\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
-
-\author{Ue-Li Pen}
-\affiliation{Canadian Institute for Theoretical Astrophysics, University of Toronto, 60 St. George Street, Toronto, Ontario M5S 3H8, Canada}
-\affiliation{Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada}
-\affiliation{Canadian Institute for Advanced Research, CIFAR Program in Gravitation and Cosmology, Toronto, Ontario M5G 1Z8, Canada}
-\affiliation{Perimeter Institute for Theoretical Physics, 31 Caroline Street North, Waterloo, Ontario, N2L 2Y5, Canada}
-
-\author{Matthew McQuinn}
-\affiliation{Department of Astronomy, University of Washington, Seattle, WA 98195, USA}
-
-\author{Xuelei Chen}
-\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
-\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
-\affiliation{Center of High Energy Physics, Peking University, Beijing 100871, China}
+%\author{Hong-Ming Zhu}
+%\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
+%\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
+%
+%\author{Ue-Li Pen}
+%\affiliation{Canadian Institute for Theoretical Astrophysics, University of Toronto, 60 St. George Street, Toronto, Ontario M5S 3H8, Canada}
+%\affiliation{Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada}
+%\affiliation{Canadian Institute for Advanced Research, CIFAR Program in Gravitation and Cosmology, Toronto, Ontario M5G 1Z8, Canada}
+%\affiliation{Perimeter Institute for Theoretical Physics, 31 Caroline Street North, Waterloo, Ontario, N2L 2Y5, Canada}
+%
+%\author{Matthew McQuinn}
+%\affiliation{Department of Astronomy, University of Washington, Seattle, WA 98195, USA}
+%
+%\author{Xuelei Chen}
+%\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
+%\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
+%\affiliation{Center of High Energy Physics, Peking University, Beijing 100871, China}
 
 \date{\today}
 
@@ -77,110 +77,40 @@ title 2: BAO Reconstruction in 1+1 Dimensions.
 %\section{\label{sec:level1}First-level heading}
 % sections are not used for PRL papers
 
-{\it Introduction.}---The imprint of baryon acoustic oscillations (BAO) in the
-large-scale structure provides a standard ruler to measure the expansion rate
-of the Universe. Precise measurements of the BAO feature are crucial for 
-probing the dynamics of dark energy.
-Nonlinear evolution in the density field damps the oscillations in the linear
-power specturm, reducing the BAO signal can be extracted from observations. 
-The lost linear BAO information can be partially recovered by the reconstruction
-technique []. Precision modelling of the reconstructed density field and 
-further improvements of the reconstruction method are of great importance
-for measureing the BAO peak at the subpercent level in the current and future
-dark energy experiments.
-
-In the standard BAO reconstruction algorithm, the negative Zel'dovich (linear)
-displacement is used to reverse the large-scale bulk flows.
-The small-scale inhomogeneities in the nonlinear density field is ususally
-suppressed using a Gaussian smoothing of scale $R$ so that the smoothed density
-field provides a reliable estimation on the linear displacement.
-The smoothing scale $R$ should be comparable to the nonlinear scale 
-$\sim10\ \mr{Mpc}/h$, where linear approximation breaks down.
-Thus, the nonlinear information is not used in the reconstruction. 
-However, using smaller smoothing scales in order to include the small-scale 
-modes would make the Zel'dovich approximation unvalid and induce
-nonlinearities which are difficult to model.
-The gain would be huge if these small-scale modes can be exploited, providing
-the information about the higher-order displacement field.
-The estimated negative Zel'dovich displacement is evaluated at the Eulerian 
-position $\bm{x}$ rather than the Lagrangian position $\bm{q}$. The difference
-between these two positions is often neglected in the reconstruction, which
-is a reasonable first order approximation (See Section 3.1 in Ref. [] for a 
-discussion about this). Recently it is suggested that a new correction term
-due to this should be included in modelling the displacement (See Appendix A
-in Ref.  for more detailed discussions).
-In this Letter, we point out that the nonlinear displecement can be solved
-from the nonlinear density field and present a new method to reconstruct
-the linear BAO information from the nonlinear density field.
-
-The basic idea is to build a curvilinear coordinate system, where the mass per
-volume element is constant [3,4]. Consider a numerical grid of coordinates 
-$\bm{\xi}\equiv(\xi_1,\ \xi_2,\ \xi_3)$. In order to determine the physical 
-position of each lattice point, one needs to specify the Cartesian coordinate 
-$\bm{x}(\bm{\xi},\ t)$ of each curvilinear coordinate.
-In the Cartesian coordinate system, the metric is just the Kronecker delta
-function $\delta_{ij}$, while the curvilinear metric is
-\bea
-g_{\alpha\beta}=\frac{\partial x^i}{\partial \xi^\alpha}\frac{\partial x^j}{\partial \xi^\beta}\delta_{ij},
-\eea
-where Latin indices denote Cartesian coordinate labels $x^i$, 
-while Greek indices imply curvilinear coordinates $\xi^\alpha$.
-As in Refs. [3,4], we define a coordinate transformation that is a pure 
-gradient,
-\bea
-x^i=\xi^\mu\delta^i_\mu+\Delta x^i,
-\eea
-where
-\bea
-\Delta x^i\equiv\frac{\partial\phi}{\partial\xi^\nu}\delta^{i\nu}.
-\eea
-The lattice displacement $\Delta\bm{x}$ is completely determined by the  
-potential $\phi$.
-The mass density at the curvilinear coordinate $\bm{\xi}$ is 
-\bea
-\rho(\bm{\xi})=\sqrt{g}\rho(\bm{x}),
-\eea
-where $\sqrt{g}\equiv\mr{det}(\partial x^i/\partial \xi^\alpha)$ is the volume
-element. The potential field $\phi(\bm{\xi})$ which gives $\rho(\bm{\xi})=0$
-can be solved using the multigrid alogirthm described in Ref. [].
-Since we only have the density field, which is a scalar field, it only allows
-us to reconstruct the scaler potential $\phi$ rather than the vector.
-The reconstructed density field $\delta_r(\bm{\xi})$ is given by 
-\bea
-\delta_r(\bm{\xi})=\nabla_{\bm{\xi}}\cdot\Delta\bm{x}(\bm{\xi}).
-\eea
-
-In the Lagrangian approach to the nonlinear structure formation, 
-the displacement field $\bm{\Psi}(\bm{q},\tau)$ fully describes the motion of
-the mass elements.
-The Eulerian position $\bm{x}$ of a mass element is
-\bea
-\bm{x}=\bm{q}+\bm{\Psi}(\bm{q},\tau),
-\eea
-where $\bm{q}$ is the initial Lagrangian position of this mass element.
-The displacement field $\bm{\Psi}$ can be decomposed into an irrotational part
-and a curl part,
-\bea
-\bm{\Psi}=\bm{\Psi}_E+\bm{\Psi}_B,
-\eea
-where $\nabla\times\bm{\Psi}_E=0$ and $\nabla\cdot\bm{\Psi}_B=0$.
-In the case that particles describe an irrotational potential flow, 
-$\bm{\Psi}_E$ fully describes the motion of the mass elements.
-In reality, shell crossing happens in the nonlinear regime, and the emergence
-of vorticity leads to the growth of $\bm{\Psi}_B$. 
-The reconstructed lattice displacement $\Delta\bm{x}$ describes the nonlinear
-motion beyond the Zel'dovich displacement.
-
-
-The real displacement field is available in $N$-body simulations. It can be
-decomposed and compared with the reconstructed lattice displacement to see
-how much information is reconstructed. 
-\tcb{I think this is what Qiaoyin and Haoran working on now?}
+{\it Introduction.}---The standard BAO reconstruction uses the negative
+Zel'dovich (linear) displacement to reverse the large-scale bulk flows 
+\cite{2007bao}. 
+The nonlinear density field is usually smoothed on the linear scale 
+($\sim10\ \mr{Mpc}/h$) to make the Zel'dovich approximation valid.
+Actually, the fully nonlinear displacement which describes the motion beyond
+the linear order (the Zel'dovich approximation) can be solved from the nonlinear
+density field.
+While the algorithm is complicated in the three spatial dimensions, it is 
+quite simple in the 1D case, which is basically the ordering of mass elements.
+The 1D cosmological dynamics corresponds to the interaction of infinite sheets
+of matter where the force is independent of distance \cite{2016matt}.
+These sheets are moving in a Hubble flow relative to one another and the surface
+density in each sheet scales as $a^{-2}$.
+The simplified 1D dynamics provides an excellent means of understanding the 
+structure formation and testing perturbation theories \cite{2016matt}.
+In this Letter, we solve the fully nonlinear displacement in 1D and present
+a new method to reconstruct the linear BAO information.
 %=======================================
 
 
-{\it Reconstruction algorithm.}---The Lagrangian displacement can be solved
-easily in 1+1 dimensions by ordering of the mass elements.
+{\it Simulations.}---To simulate the gravitational dynamics in 1D, we use the 
+1D particle-mesh (PM) code in Ref. \cite{2016matt}.
+The 1D simualtion we use involves $3\times10^8$ sheets with $3\times10^8$ PM
+elements in a $10^8\ \mr{Mpc}$ box.
+The initial condition is generated under the Zel'dovich approximation.
+Since the Zel'dovich approximation is exact up to shell crossing, we start 
+the PM calculation at $z=10$. In our analysis, we use the output at $z=0$.
+We scale the initial density field by the linear growth factor to get the
+linear density field at $z=0$.
+%=======================================
+
+{\it Reconstruction algorithm.}---The nonlinear Lagrangian displacement 
+can be solved easily in 1D by the ordering of mass elements.
 
 (1) Solve the displacement $\Psi(q)$ field by ordering of the mass elements.
 
@@ -192,21 +122,13 @@ To solve the displacement field, we combine grids to get two fields with
 five PM elements per grid and ten PM elements per grid, respectively.
 
 Reconstruction from the gridded density field can be implemented following
-the same principle, which we adopt here [].
+the same principle, which we adopt in the following calculations 
+\tcb{to be updated}
 %=======================================
 
 
-{\it Simulations.}---We adopt the 1D $N$-body simualtions in 
-Ref. \cite{2016matt}
-and use outputs at $z=0$. The simulation box is $10^8\ \mr{Mpc}$ with 
-$3\times10^8$ grids and $3\times10^8$ PM elements.
-We scale the intial density field by the linear
-growth factor to get the linear density field $\delta_L$ at $z=0$. 
-Note that $\delta_L$ has been rescaled using the linear growth function
-to the same redshift as $\delta$. 
 
-
-Figure \ref{fig:ps} shows the linear, nonlinear and reconstructed power spectra,
+{\it Results.}---Figure \ref{fig:ps} shows the linear, nonlinear and reconstructed power spectra,
 as well as the cross-corrlation power spectra.
 The correlation of the reconstruction density field $\delta_r$ with the linear
 density field $\delta_L$ is much better than that of the raw nonlinear density 
@@ -224,10 +146,8 @@ We also plot the nonlinear-linear (thick dotted line) and
 reconstructed-linear (thin dotted line) cross-correlation power spectra.}
 \label{fig:ps}
 \end{figure}
-%=======================================
 
-
-{\it Results.}---To convenienty quantify the linear information $\delta_L$ in 
+To convenienty quantify the linear information $\delta_L$ in 
 the nonlinear density field $\delta$, we decompose the nonlinear density field
 $\delta$ as
 \begin{eqnarray}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{5}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -11,6 +11,15 @@
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{{Eisenstein} et~al.}(2007)\citenamefont{{Eisenstein},
+  {Seo}, {Sirko}, and {Spergel}}}]{2007bao}
+\bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{{Eisenstein}}},
+  \bibinfo{author}{\bibfnamefont{H.-J.} \bibnamefont{{Seo}}},
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{{Sirko}}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.~N.} \bibnamefont{{Spergel}}},
+  \bibinfo{journal}{\apj} \textbf{\bibinfo{volume}{664}}, \bibinfo{pages}{675}
+  (\bibinfo{year}{2007}), \eprint{astro-ph/0604362}.
 
 \bibitem[{\citenamefont{{McQuinn} and {White}}(2016)}]{2016matt}
 \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{McQuinn}}} \bibnamefont{and}
