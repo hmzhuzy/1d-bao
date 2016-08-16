@@ -35,7 +35,6 @@
 % the following line is for submission, including submission to the arXiv!!
 %\hspace{5.2in} \mbox{Fermilab-Pub-04/xxx-E}
 
-
 \title{Reconstruction of Baryon Acoustic Oscillations in 1+1 Dimensions}
 
 %\author{Hong-Ming Zhu}
@@ -104,28 +103,49 @@ The 1D simualtion we use involves $3\times10^8$ sheets with $3\times10^8$ PM
 elements in a $10^8\ \mr{Mpc}$ box.
 The initial condition is generated under the Zel'dovich approximation.
 Since the Zel'dovich approximation is exact up to shell crossing, we start 
-the PM calculation at $z=10$. In our analysis, we use the output at $z=0$.
+the PM calculation at $z=10$. In the analysis, we use the output at $z=0$.
 We scale the initial density field by the linear growth factor to get the
 linear density field at $z=0$.
 %=======================================
 
-{\it Reconstruction algorithm.}---The nonlinear Lagrangian displacement 
-can be solved easily in 1D by the ordering of mass elements.
 
-(1) Solve the displacement $\Psi(q)$ field by ordering of the mass elements.
+{\it Reconstruction algorithm.}---The Lagrangian displacement 
+${\Psi}({q})$ fully describes the motion of mass elements.
+The Eulerian position ${x}$ of a mass element is
+\bea
+{x}={q}+{\Psi}({q}),
+\eea
+where ${q}$ is the initial Lagrangian position of this mass element.
+In the simulations, mass elements (sheets) are labeled by their initial 
+Lagrangian coordinates. Once we know their Eulerian positions, the displacment 
+field is obtained. Observationally, we only have the unlabelled Eulerian 
+coordinates. 
+The estimated displacement at the Lagrangian coordinate $q=iL/N$ is 
+\bea
+s(q)=x_i-iL/N,
+\eea
+where we have ordered the sheet lables $i$ from left to right, $L$ is the box
+size, and $N$ is the sheet number. 
+If no shell crossing happens, the reconstructed displacement is exact up to
+a global shift. In the nonlinear regime once shell crossing occurs, the 
+estimated displacement field is quite noisy on the scale $L/N$.
+To reduce stochasticities in the estimated displacement field, we can use the
+averaged displacement of $n_p$ particles 
+\bea
+s(q)=\frac{1}{n_p}\sum_{j=i}^{i+n_p-1}x_{i+j}-in_pL/N,
+\eea
+where $q=in_pL/N$ and $j$ is the sheet label. 
+%Here $i$ varies from $0$ to $N/n_p$ and $j$ varies from $0$ to $N$.
 
-(2) Take the differential derivative of $\Psi(q)$ to get the reconstructed
-density field $\delta_r(\bm{q})=-\nabla_{\bm{q}}\Psi(\bm{q})$.
-$\delta_r(\bm{q})=-\partial\Psi(q)/\partial q$.
-
-To solve the displacement field, we combine grids to get two fields with
-five PM elements per grid and ten PM elements per grid, respectively.
-
+The derivative (actually the divergence) of $s(q)$ gives the reconstructed 
+density field 
+$\delta_r({q})=-\partial s(q)/\partial q$,
+i.e., the differential
+motion of mass elements. \tcb{is this argument appropriate? shall we discuss 
+more here?}
 Reconstruction from the gridded density field can be implemented following
-the same principle, which we adopt in the following calculations 
-\tcb{to be updated}
+the same principle, which we adopt in the following calculations.
 %=======================================
-
 
 
 {\it Results.}---Figure \ref{fig:ps} shows the linear, nonlinear and reconstructed power spectra,
@@ -133,7 +153,7 @@ as well as the cross-corrlation power spectra.
 The correlation of the reconstruction density field $\delta_r$ with the linear
 density field $\delta_L$ is much better than that of the raw nonlinear density 
 field $\delta$. The wiggles in the reconstructed power spectrum are also much 
-more transparent than the raw nonlinear power spectrum.
+more transparent than the nonlinear power spectrum.
 
 \begin{figure}[tbp]
 \begin{center}
@@ -167,7 +187,7 @@ P_\delta(k)=\mathcal{D}(k)P_{\delta_L}(k)+P_{\delta_N}(k),
 where $\mathcal{D}=b^2$ describes the damping of the linear power specturm.
 The reconstructed power spectrum $P_{\delta_r}$ can be describe in the same way.
 Here, $b(\bm{k})$ is often referred as the ``propagator'' 
-and $n(\bm{k})$ is usually
+and $P_{\delta_N}$ is usually
 called the mode-coupling term \cite{2006crocce,2008crocce,2008matsubara}.
 \tcb{still to be modified}
 
