@@ -37,23 +37,23 @@
 
 \title{Primordial density and BAO reconstruction}
 
-%\author{Hong-Ming Zhu}
-%\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
-%\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
-%
-%\author{Ue-Li Pen}
-%\affiliation{Canadian Institute for Theoretical Astrophysics, University of Toronto, 60 St. George Street, Toronto, Ontario M5S 3H8, Canada}
-%\affiliation{Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada}
-%\affiliation{Canadian Institute for Advanced Research, CIFAR Program in Gravitation and Cosmology, Toronto, Ontario M5G 1Z8, Canada}
-%\affiliation{Perimeter Institute for Theoretical Physics, 31 Caroline Street North, Waterloo, Ontario, N2L 2Y5, Canada}
-%
-%\author{Matthew McQuinn}
-%\affiliation{Department of Astronomy, University of Washington, Seattle, WA 98195, USA}
-%
-%\author{Xuelei Chen}
-%\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
-%\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
-%\affiliation{Center of High Energy Physics, Peking University, Beijing 100871, China}
+\author{Hong-Ming Zhu}
+\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
+\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
+
+\author{Ue-Li Pen}
+\affiliation{Canadian Institute for Theoretical Astrophysics, University of Toronto, 60 St. George Street, Toronto, Ontario M5S 3H8, Canada}
+\affiliation{Dunlap Institute for Astronomy and Astrophysics, University of Toronto, 50 St. George Street, Toronto, Ontario M5S 3H4, Canada}
+\affiliation{Canadian Institute for Advanced Research, CIFAR Program in Gravitation and Cosmology, Toronto, Ontario M5G 1Z8, Canada}
+\affiliation{Perimeter Institute for Theoretical Physics, 31 Caroline Street North, Waterloo, Ontario, N2L 2Y5, Canada}
+
+\author{Matthew McQuinn}
+\affiliation{Department of Astronomy, University of Washington, Seattle, WA 98195, USA}
+
+\author{Xuelei Chen}
+\affiliation{Key Laboratory for Computational Astrophysics, National Astronomical Observatories, Chinese Academy of Sciences, 20A Datun Road, Beijing 100012, China}
+\affiliation{University of Chinese Academy of Sciences, Beijing 100049, China}
+\affiliation{Center of High Energy Physics, Peking University, Beijing 100871, China}
 
 \date{\today}
 
@@ -90,7 +90,8 @@ density in each sheet scales as $a^{-2}$.
 The simplified 1D dynamics provides an excellent means of understanding the 
 structure formation and testing perturbation theories \cite{2016matt}.
 In this Letter, we solve the fully nonlinear displacement in 1D and present
-a new method to reconstruct the linear BAO information.
+a new method to reconstruct the primordial density field and hence the linear 
+BAO information.
 %=======================================
 
 
@@ -99,7 +100,7 @@ To simulate the gravitational dynamics in 1D, we use the
 1D particle-mesh (PM) code in Ref. \cite{2016matt}.
 The 1D simualtion we use involves $3\times10^8$ sheets with $3\times10^8$ PM
 elements in a $10^8\ \mr{Mpc}$ box.
-The initial condition is generated under the Zel'dovich approximation.
+The initial condition is generated using the Zel'dovich approximation.
 Since the Zel'dovich approximation is exact up to shell crossing, we start 
 the PM calculation at $z=10$. In the analysis, we use the output at $z=0$.
 We scale the initial density field by the linear growth factor to get the
@@ -131,7 +132,7 @@ estimated displacement field is quite noisy on the scale $L/N$.
 To reduce stochasticities in the estimated displacement field, we can use the
 averaged displacement of $n_p$ particles 
 \bea
-s(q)=\frac{1}{n_p}\sum_{j=i}^{i+n_p-1}x_{i+j}-in_pL/N,
+s(q)=\frac{1}{n_p}\sum_{j=i}^{i+n_p-1}x_{j}-in_pL/N,
 \eea
 where $q=in_pL/N$ and $j$ is the sheet label. 
 Here $i$ varies from $0$ to $N/n_p$ and $j$ varies from $0$ to $N$.
@@ -156,6 +157,9 @@ The correlation of the reconstruction density field $\delta_r$ with the linear
 density field $\delta_L$ is much better than that of the raw nonlinear density 
 field $\delta$. The wiggles in the reconstructed power spectrum are also much 
 more transparent than the nonlinear power spectrum.
+The nonlinear density field $\delta(x)$ is given on the Eulerian position $x$,
+while the reconstructed density field $\delta_r(q)$ is calculated on the 
+Lagrangian position $q$. 
 
 \begin{figure}[tbp]
 \begin{center}
@@ -165,7 +169,9 @@ more transparent than the nonlinear power spectrum.
 \caption{The power spectra of the linear (dashed line), nonlinear (thick solid
 line), and reconstructed (thin solid line) fields. 
 We also plot the nonlinear-linear (thick dotted line) and 
-reconstructed-linear (thin dotted line) cross-correlation power spectra.}
+reconstructed-linear (thin dotted line) cross-correlation power spectra.
+The wiggles in the reconstructed power spectrum are also much 
+more transparent than the nonlinear power spectrum.}
 \label{fig:ps}
 \end{figure}
 
@@ -174,10 +180,12 @@ reconstructed-linear (thin dotted line) cross-correlation power spectra.}
 \includegraphics[width=0.48\textwidth]{f3xx.eps}
 \end{center}
 \vspace{-0.7cm}
-\caption{The power spectra of the linear (dashed line), nonlinear (thick solid
-line), and reconstructed (thin solid line) fields. 
-We also plot the nonlinear-linear (thick dotted line) and 
-reconstructed-linear (thin dotted line) cross-correlation power spectra.}
+\caption{The linear power spectrum (dashed line), the linear components in the
+nonlinear (thick solid line) and reconstructed (thin solid line) fields,
+the noise parts of the nonlinear (thick dotted line) and reconstructed (thin
+dotted line) fields. The noise terms dominate over the signals at 
+$k\gtrsim0.07\ \mr{Mpc}^{-1}$ for the nonlinear field and $k_q\gtrsim0.25\ \mr{Mpc}^{-1}$
+for the reconstructed field.}
 \label{fig:pn}
 \end{figure}
 
@@ -185,25 +193,27 @@ To convenienty quantify the linear information $\delta_L$ in
 the nonlinear density field $\delta$, we decompose the nonlinear density field
 $\delta$ as
 \begin{eqnarray}
-\delta(\bm{k})=b(\bm{k})\delta_L(\bm{k})+\delta_N(\bm{k}).
+\delta({k})=b({k})\delta_L({k})+n({k}).
 \end{eqnarray}
 Here, $b\delta_L$ is completely correlated with the linear density field 
 $\delta_L$ and $b=P_{\delta\delta_L}/P_{\delta_L}$.
 Nonlinear evolution drives $b$ to drop from unity, reducing the linear signal.
-$\delta_N$ is generated in the nonlinear evolution and thus uncorrelated with
+$n$ is generated in the nonlinear evolution and thus uncorrelated with
 the linear density field $\delta_L$, further reducing $b\delta_L$ with respect
 to $\delta$. This part induces noises in the measurement of BAO. 
-Hence we denote it with a subscript ``$N$''. 
+Hence we denote it as $n$. 
 Such decomposition helps to write the nonlinear power spectrum as
 \bea
-P_\delta(k)=\mathcal{D}(k)P_{\delta_L}(k)+P_{\delta_N}(k),
+P_\delta(k)=\mathcal{D}(k)P_{\delta_L}(k)+P_{n}(k),
 \eea
 where $\mathcal{D}=b^2$ describes the damping of the linear power specturm.
-The reconstructed power spectrum $P_{\delta_r}$ can be describe in the same way.
-Here, $b(\bm{k})$ is often referred as the ``propagator'' 
-and $P_{\delta_N}$ is usually
+The reconstructed power spectrum $P_{\delta_r}$ can be describe in the 
+same way.
+Here, $b(k)$ is often referred as the ``propagator'' 
+and $P_{n}$ is usually
 called the mode-coupling term \cite{2006crocce,2008crocce,2008matsubara}.
-\tcb{still to be modified}
+In Fig. \ref{fig:pn}
+
 
 \begin{figure}[tbp]
 \begin{center}
