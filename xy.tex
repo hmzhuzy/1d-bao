@@ -25,9 +25,6 @@
 \newcommand{\bmx}{\bm{x}}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
-\newcommand{\nl}{\mr{NL}}
-
-
 
 \begin{document}
 % The following information is for internal review, please remove them for submission
@@ -60,10 +57,6 @@
 \begin{abstract}
 In this paper we introduce a new way to reconstruct BAO peaks in real space.
 
-
-
-
-
 \end{abstract}
 
 \pacs{}
@@ -89,13 +82,20 @@ These sheets are moving in a Hubble flow relative to one another and the surface
 density in each sheet scales as $a^{-2}$.
 The simplified 1D dynamics provides an excellent means of understanding the 
 structure formation and testing perturbation theories \cite{2016matt}.
-In this Letter, we solve the fully nonlinear displacement in 1D and present
+In this paper we solve the fully nonlinear displacement in 1D and present
 a new method to reconstruct the primordial density field and hence the linear 
 BAO information.
+
+This paper is organized as follows. In Section \ref{sim}, we briefly describe 
+the 1D $N$-body simulation. In Section \ref{rec}, we present the reconstruction 
+algorithm in the 1D case. In Section \ref{res}, we show the results of
+reconstruction.
+In Section \ref{dis}, we discuss the 3D case and future improvements.
 %=======================================
 
 
 \section{Simulations}
+\label{sim}
 To simulate the gravitational dynamics in 1D, we use the 
 1D particle-mesh (PM) code in Ref. \cite{2016matt}.
 The 1D simualtion we use involves $3\times10^8$ sheets with $3\times10^8$ PM
@@ -109,6 +109,7 @@ linear density field at $z=0$.
 
 
 \section{Reconstruction algorithm}
+\label{rec}
 The Lagrangian displacement 
 ${\Psi}({q})$ fully describes the motion of mass elements.
 The Eulerian position ${x}$ of a mass element is
@@ -151,6 +152,7 @@ the same principle, which we adopt in the following calculations.
 
 
 \section{Results}
+\label{res}
 Figure \ref{fig:ps} shows the linear, nonlinear and reconstructed power spectra,
 as well as the cross-corrlation power spectra.
 The correlation of the reconstruction density field $\delta_r$ with the linear
@@ -184,7 +186,7 @@ more transparent than the nonlinear power spectrum.}
 nonlinear (thick solid line) and reconstructed (thin solid line) fields,
 the noise parts of the nonlinear (thick dotted line) and reconstructed (thin
 dotted line) fields. The noise terms dominate over the signals at 
-$k\gtrsim0.07\ \mr{Mpc}^{-1}$ for the nonlinear field and $k_q\gtrsim0.25\ \mr{Mpc}^{-1}$
+$k\gtrsim0.07\ \mr{Mpc}^{-1}$ for the nonlinear field and $k_q\gtrsim0.24\ \mr{Mpc}^{-1}$
 for the reconstructed field.}
 \label{fig:pn}
 \end{figure}
@@ -196,52 +198,104 @@ $\delta$ as
 \delta({k})=b({k})\delta_L({k})+n({k}).
 \end{eqnarray}
 Here, $b\delta_L$ is completely correlated with the linear density field 
-$\delta_L$ and $b=P_{\delta\delta_L}/P_{\delta_L}$.
+$\delta_L$. Correlating the nonlinear density field with the linear density 
+field,  
+\bea
+\langle\delta(k)\delta_L(k)\rangle=b(k)\langle\delta_L(k)\delta_L(k)\rangle,
+\eea
+we obtain 
+\bea
+b(k)=\frac{P_{\delta\delta_L}(k)}{P_{\delta_L}(k)}.
+\eea
 Nonlinear evolution drives $b$ to drop from unity, reducing the linear signal.
+Separating the part correlated with the linear density field, we then have
+\bea
+n(k)=\delta(k)-b(k)\delta_L(k).
+\eea
 $n$ is generated in the nonlinear evolution and thus uncorrelated with
 the linear density field $\delta_L$, further reducing $b\delta_L$ with respect
 to $\delta$. This part induces noises in the measurement of BAO. 
-Hence we denote it as $n$. 
 Such decomposition helps to write the nonlinear power spectrum as
 \bea
-P_\delta(k)=\mathcal{D}(k)P_{\delta_L}(k)+P_{n}(k),
+P_\delta(k)=b^2(k)P_{\delta_L}(k)+P_{n}(k).
 \eea
-where $\mathcal{D}=b^2$ describes the damping of the linear power specturm.
-The reconstructed power spectrum $P_{\delta_r}$ can be describe in the 
-same way.
-Here, $b(k)$ is often referred as the ``propagator'' 
-and $P_{n}$ is usually
+Here, $b(k)$ is often referred as the ``propagator'' and $P_{n}$ is usually
 called the mode-coupling term \cite{2006crocce,2008crocce,2008matsubara}.
-In Fig. \ref{fig:pn}
+For the reconstructed field $\delta_r(q)$, we also have
+\bea
+\delta_r(k_q)=b_r(k_q)\delta_L(k_q)+n_r(k_q),
+\eea
+where 
+\bea
+b_r(k_q)=\frac{P_{\delta_r\delta_L}(k_q)}{P_{\delta_L}(k_q)}.
+\eea
+The reconstructed power specrum is 
+\bea
+P_{\delta_r}(k_q)=b_r^2(k_q)P_{\delta_L}(k_q)+P_{n_r}(k_q).
+\eea
+Here, the subscript ``$q$'' denotes that the reconstructed field is given on the
+Lagraigian coordinate.
+In Fig. \ref{fig:pn} we plot the linear components and the noise terms of
+the nonlinear and reconstructed fields.
 
+\begin{figure}[tbp]
+\begin{center}
+\includegraphics[width=0.48\textwidth]{f5.eps}
+\end{center}
+\vspace{-0.7cm}
+\caption{The power spectra for the linear (dashed line), filtered nonlinear
+(dotted line) and filtered reconstructed (solid line) fields.}
+\label{fig:wf}
+\end{figure}
 
 \begin{figure}[tbp]
 \begin{center}
 \includegraphics[width=0.48\textwidth]{f6x.eps}
 \end{center}
 \vspace{-0.7cm}
-\caption{The damping factors for the nonlinear (thin solid line) and 
-reconstructed (thick solid line) fields. The Gaussian BAO damping models with 
-$\Sigma=20\ \mr{Mpc}$ (thick dotted line) and $\Sigma=10\ \mr{Mpc}$ (thin dotted
-line).}
+\caption{The damping factors for the nonlinear (thick solid line) and 
+reconstructed (thin solid line) fields. The Gaussian BAO damping models with 
+$\Sigma=21.5\ \mr{Mpc}$ (thick dashed line) and $\Sigma=6.8\ \mr{Mpc}$ 
+(thin dashed line).}
 \label{fig:damp}
 \end{figure}
 
-Figure \ref{fig:damp} shows the damping functions for the raw and reconstructed 
-fields. The nonlinear damping of the linear power spectrum is 
+The raw reconstructed field $\delta_r$ is still noisy on small scales 
+($k_q\gtrsim0.24\ \mr{Mpc}^{-1}$). To optimally filter out the noise from the 
+raw reconstructed field, we use the Wiener filter
+\bea
+W_r(k_q)=\frac{P_{\delta_L}(k_q)}{P_{\delta_L}(k_q)+P_{n_r}(k_q)/b_r^2(k_q)}.
+\eea
+Deconvolving $b_r$ and using the Wiener filtering, we obtain the optimal 
+reconstructed field,
+\bea
+\tilde{\delta}_r(k_q)=\frac{\delta_r(k_q)}{b_r(k_q)}W_r(k_q).
+\eea
+The power spectrum of the optimal reconstructed field $\tilde{\delta}_r$ is 
+given by
+\bea
+P_{\tilde{\delta}_r}(k_q)=W_r^2(k_q)P_{\delta_L}(k_q)+W_r^2(k_q)
+{P_{n_r}(k_q)}/{b_r^2(k_q)},
+\eea
+where $W_r^2$ describes the dampling of the linear power spectrum. The raw 
+nonlinear field $\delta$ is also filtered. 
+In Fig. \ref{fig:wf}, we plot the power spectra of the optimal reconstructed and
+nonlinear fields.
+
+Figure \ref{fig:damp} shows the damping factors for the optimal filtered 
+nonlinear and reconstructed fields. The damping of the linear power spectrum is 
 significantly reduced after reconstruction. We also overplot the best-fitting 
 Gaussian BAO damping model,
 \bea
 \mathcal{D}(k)=\mr{e}^{-k^2\Sigma^2/2},
 \eea
-with $\Sigma=?\ \mr{Mpc}$ and $?\ \mr{Mpc}$ for the nonlinear and reconstructed 
-fields. The new BAO reconstruction algorithm reduces the the nonlinear damping
-scale $\Sigma$ by ?? per cent, i.e., a of ??. The damping factor is above 0.9
-for $k\lesssim?\ \mr{Mpc}^{-1}$ indicating (almost) perfect reconstruction. 
-\tcb{how to best quantify the reduction of damping? }
+with $\Sigma=21.5\ \mr{Mpc}$ and $6.8\ \mr{Mpc}$ for the nonlinear and 
+reconstructed fields. 
+The new BAO reconstruction algorithm reduces the the nonlinear damping
+scale $\Sigma$ by 60 per cent, i.e., a factor of three. 
+The damping factor is above 0.8 for $k\lesssim0.1\ \mr{Mpc}^{-1}$. 
 However, the 100 per cent reconstruction, cancelling any nonlinear effects,
-is still unachievable, as some information has been irreversibly lost. (more 
-discissions)
+is still unachievable, as some information has been irreversibly lost. 
 
 \begin{figure}[tbp]
 \begin{center}
@@ -254,33 +308,47 @@ correlation coefficient (dashed line).}
 \label{fig:xcc}
 \end{figure}
 
-Reconstruction also reduces the noise term $P_{\delta_N}$. To demonstrate this,
-in Fig. \ref{fig:xcc} we plot the  cross-correltion coefficient 
+Reconstruction reduces the nonlinear damping $\mathcal{D}$ as well as the noise
+term $P_{n}$. To quantify the overall performance, we can use the cross-correltion coefficient 
 \bea
 r(k)=\frac{P_{\delta\delta_L}(k)}
 {\sqrt{P_{\delta}(k)P_{\delta_L}(k)}}
 =\frac{1}{\sqrt{1+\eta(k)}},
 \eea
-where $\eta=P_n/(\mathcal{D}P_{\delta_L})$ quantifies the relative amplitude
-of $\delta_N$ with respect to $b\delta_L$. The correlation of $\delta_r$ with
+where $\eta=P_n/(b^2P_{\delta_L})$ quantifies the relative amplitude
+of $n$ with respect to $b\delta_L$. We plot the cross-correlation coefficients
+in Fig. \ref{fig:xcc}. The correlation of $\delta_r$ with
 $\delta_L$ is as good as that of $\delta$ at $z=3$.
-\tcb{how to quantify this better?}
 
-Distribution functions 
 \begin{figure}[tbp]
 \begin{center}
 \includegraphics[width=0.48\textwidth]{f8x.eps}
 \end{center}
 \vspace{-0.7cm}
-\caption{The distribution functions.}
+\caption{The probability distribution functions of the nonlinear (thick dashed 
+line) and reconstructed (thin dashed line) fields. 
+We also show the probability distribution functions of the linear component 
+(solid line) and the noise part (dotted line).}
 \label{fig:pdf}
 \end{figure}
+
+The density fluctuation probability distribution function (PDF) quantifies the 
+Gaussianity of the density field. Figure \ref{fig:pdf} shows the PDFs of
+the nonlinear and reconstructed density fields. We also plot the PDFs of the
+linear component $b_r\delta_L$ and the noise part $n_r$ of the reconstructed 
+density field $\delta_r$. Of course the linear component is Gaussian, while 
+the noise part is nonGaussian. As a result, the reconstructed density field is 
+also nonGaussian. The raw nonlinear density field is significantly nonGaussian.
 
 
 %=======================================
 
 
 \section{ Discussions}
+\label{dis}
+In reality, the Universe is 3D instead of 1D.
+
+
 The new method significantly
 improves the expansion rate measurement from BAO. (more discussions?) 
 
@@ -300,7 +368,7 @@ the performance will become much better but still not as good as our results.
 %=======================================
 
 \section{Acknowledgement}
-We acknowledge helpful discussions with Yu Yu and Tian-Xiang Mao.
+We thank Yu Yu and Tian-Xiang Mao for helpful discussions.
 We acknowledge the support of the Chinese MoST 863 program under Grant 
 No. 2012AA121701, the CAS Science Strategic Priority Research Program 
 XDB09000000, the NSFC under Grant No. 11373030, IAS at Tsinghua University, 
