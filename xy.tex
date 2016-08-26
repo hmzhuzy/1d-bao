@@ -56,7 +56,7 @@
 
 \begin{abstract}
 In this paper we introduce a new way to reconstruct BAO peaks in real space.
-
+...... \tcb{how to briefly summarize this?}
 \end{abstract}
 
 \pacs{}
@@ -66,6 +66,8 @@ In this paper we introduce a new way to reconstruct BAO peaks in real space.
 % sections are not used for PRL papers
 
 \section{Introduction}
+\tcb{do we need to add more content before the first paragraph?}
+
 The standard BAO reconstruction uses the negative
 Zel'dovich (linear) displacement to reverse the large-scale bulk flows 
 \cite{2007bao}. 
@@ -129,7 +131,7 @@ where we have ordered the sheet lables $i$ from left to right, $L$ is the box
 size, and $N$ is the sheet number. 
 If no shell crossing happens, the reconstructed displacement is exact up to
 a global shift. In the nonlinear regime once shell crossing occurs, the 
-estimated displacement field is quite noisy on the scale $L/N$.
+estimated displacement field is quite noisy on the scale $\sim L/N$.
 To reduce stochasticities in the estimated displacement field, we can use the
 averaged displacement of $n_p$ particles 
 \bea
@@ -137,6 +139,7 @@ s(q)=\frac{1}{n_p}\sum_{j=i}^{i+n_p-1}x_{j}-in_pL/N,
 \eea
 where $q=in_pL/N$ and $j$ is the sheet label. 
 Here $i$ varies from $0$ to $N/n_p$ and $j$ varies from $0$ to $N$.
+We take $n_p=5$ to estimate the displacement field in this paper.
 
 The derivative (actually the divergence) of $s(q)$ gives the reconstructed 
 density field 
@@ -158,7 +161,7 @@ as well as the cross-corrlation power spectra.
 The correlation of the reconstruction density field $\delta_r$ with the linear
 density field $\delta_L$ is much better than that of the raw nonlinear density 
 field $\delta$. The wiggles in the reconstructed power spectrum are also much 
-more transparent than the nonlinear power spectrum.
+more apparent than the nonlinear power spectrum.
 The nonlinear density field $\delta(x)$ is given on the Eulerian position $x$,
 while the reconstructed density field $\delta_r(q)$ is calculated on the 
 Lagrangian position $q$. 
@@ -209,12 +212,10 @@ b(k)=\frac{P_{\delta\delta_L}(k)}{P_{\delta_L}(k)}.
 \eea
 Nonlinear evolution drives $b$ to drop from unity, reducing the linear signal.
 Separating the part correlated with the linear density field, we then have
-\bea
-n(k)=\delta(k)-b(k)\delta_L(k).
-\eea
+$n(k)=\delta(k)-b(k)\delta_L(k)$.
 $n$ is generated in the nonlinear evolution and thus uncorrelated with
 the linear density field $\delta_L$, further reducing $b\delta_L$ with respect
-to $\delta$. This part induces noises in the measurement of BAO. 
+to $\delta$. This part induces noise in the measurement of BAO. 
 Such decomposition helps to write the nonlinear power spectrum as
 \bea
 P_\delta(k)=b^2(k)P_{\delta_L}(k)+P_{n}(k).
@@ -277,7 +278,10 @@ given by
 P_{\tilde{\delta}_r}(k_q)=W_r^2(k_q)P_{\delta_L}(k_q)+W_r^2(k_q)
 {P_{n_r}(k_q)}/{b_r^2(k_q)},
 \eea
-where $W_r^2$ describes the dampling of the linear power spectrum. The raw 
+where $W_r^2$ describes the dampling of the linear power spectrum. 
+The suppression of the linear power spectrum by $b^2$ can be fully corrected
+if $P_n$ is zero, while the damping due to $W_r^2$ can not.
+The raw 
 nonlinear field $\delta$ is also filtered. 
 In Fig. \ref{fig:wf}, we plot the power spectra of the optimal reconstructed and
 nonlinear fields.
@@ -292,8 +296,9 @@ Gaussian BAO damping model,
 with $\Sigma=21.5\ \mr{Mpc}$ and $6.8\ \mr{Mpc}$ for the nonlinear and 
 reconstructed fields. 
 The new BAO reconstruction algorithm reduces the the nonlinear damping
-scale $\Sigma$ by 60 per cent, i.e., a factor of three. 
-The damping factor is above 0.8 for $k\lesssim0.1\ \mr{Mpc}^{-1}$. 
+scale $\Sigma$ by 68 per cent, i.e., a factor of three. 
+The damping factor for the reconstructed field is above 0.8 for 
+$k\lesssim0.1\ \mr{Mpc}^{-1}$. 
 However, the 100 per cent reconstruction, cancelling any nonlinear effects,
 is still unachievable, as some information has been irreversibly lost. 
 
@@ -318,7 +323,7 @@ r(k)=\frac{P_{\delta\delta_L}(k)}
 where $\eta=P_n/(b^2P_{\delta_L})$ quantifies the relative amplitude
 of $n$ with respect to $b\delta_L$. We plot the cross-correlation coefficients
 in Fig. \ref{fig:xcc}. The correlation of $\delta_r$ with
-$\delta_L$ is as good as that of $\delta$ at $z=3$.
+$\delta_L$ is even better than that of $\delta$ at $z=3$.
 
 \begin{figure}[tbp]
 \begin{center}
@@ -339,32 +344,50 @@ linear component $b_r\delta_L$ and the noise part $n_r$ of the reconstructed
 density field $\delta_r$. Of course the linear component is Gaussian, while 
 the noise part is nonGaussian. As a result, the reconstructed density field is 
 also nonGaussian. The raw nonlinear density field is significantly nonGaussian.
-
-
 %=======================================
 
 
 \section{ Discussions}
 \label{dis}
-In reality, the Universe is 3D instead of 1D.
+The new reconstruction method successfully recovers the lost linear information 
+on the mildly nonlinear scales (till $k\lesssim0.24\ \mr{Mpc}^{-1}$).
+The result in 1D provides an intuitive view of the algorithm and motivates us to
+develop the reconstruction method in 3D. The nonlinear displacement beyond the
+Zel'dovich approximation in 3D can be solved using the multigrid
+iteration scheme \cite{1995ApJS..100..269P}. The algorithm 
+for solving the 3D nonlinear displacement is originally introduced for the 
+adaptive particle-mesh $N$-body code \cite{1995ApJS..100..269P} 
+and the moving mesh hydrodynamic code \cite{1998ApJS..115...19P}.
+The 3D case is also more complicated since the 3D displacement field involves
+a curl part (vorticity) which is generated after shell crossing, 
+while this does not happen after particles cross over in 1D. 
+This requires us to quantify the effect of vorticity, which can be accomplished
+using $N$-body simulations. 
+By decomposing the simulated displacement field into a irrotational part and
+a curl part, we can study the statistical properties of different components
+\cite{2013PhRvD..87f3526Z,2013PhRvD..88j3510Z}.
+These will be presented in future.
 
+The reconstructed nonlinear displacement field is also improtant for the 
+current BAO reconstruction \cite{2007bao}, where the linear continuity
+equation is adopted to solve the displacement under the Zel'dovich 
+approximation. 
+However, the nonlinear displacement retains much more information, describing 
+the motion of dark matter fluid elements beyond the linear order.
+The reconstructed displacement field $s(q)$ is given on the Lagrangian 
+coordinate instead of the final Eulerian coordinate. 
+This helps to correct the effect due to the use of $s(x)$ instead of $s(q)$ 
+in the BAO reconstruction \cite{2015MNRAS.450.3822W,2015PhRvD..92l3522S}.
+As more nonlinear effects will be removed using the nonlinear displacement,
+we expect the modeling of the reconstructed density field will be simplified.
 
-The new method significantly
-improves the expansion rate measurement from BAO. (more discussions?) 
-
-
-This method can be generalized to the 3D case. 
-We leave this
-to future work.
-
-
-
-Comparision with and Implications for the standard BAO reconstruction: exact 
-Lagrangian displacement,
-nonlinear displacement, which is easier to model.
-
-If use the displacement solved in this paper for the standard BAO rec, we expect
-the performance will become much better but still not as good as our results.
+The Wiener filter is optimal for the case both the signal and the noise are
+Gaussian random fields. In Fig. \ref{fig:pdf}, the PDFs of the reconstructed
+density field and the noise are apparently nonGaussian.
+The reconstruction can be further improved using the nonlinear filtering
+rather than the Wiener fieltering \cite{1999RSPTA.357.2561P}.
+We plan to study this in future.
+\tcb{do we discuss more here?}
 %=======================================
 
 \section{Acknowledgement}

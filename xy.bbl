@@ -1,4 +1,4 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{12}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -43,5 +43,54 @@
 \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{{Matsubara}}},
   \bibinfo{journal}{\prd} \textbf{\bibinfo{volume}{77}}, \bibinfo{eid}{063530}
   (\bibinfo{year}{2008}), \eprint{0711.2521}.
+
+\bibitem[{\citenamefont{{Pen}}(1995)}]{1995ApJS..100..269P}
+\bibinfo{author}{\bibfnamefont{U.-L.} \bibnamefont{{Pen}}},
+  \bibinfo{journal}{\apjs} \textbf{\bibinfo{volume}{100}}, \bibinfo{pages}{269}
+  (\bibinfo{year}{1995}).
+
+\bibitem[{\citenamefont{{Pen}}(1998)}]{1998ApJS..115...19P}
+\bibinfo{author}{\bibfnamefont{U.-L.} \bibnamefont{{Pen}}},
+  \bibinfo{journal}{\apjs} \textbf{\bibinfo{volume}{115}}, \bibinfo{pages}{19}
+  (\bibinfo{year}{1998}), \eprint{astro-ph/9704258}.
+
+\bibitem[{\citenamefont{{Zhang} et~al.}(2013)\citenamefont{{Zhang}, {Pan}, and
+  {Zheng}}}]{2013PhRvD..87f3526Z}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{{Zhang}}},
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{{Pan}}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{{Zheng}}},
+  \bibinfo{journal}{\prd} \textbf{\bibinfo{volume}{87}}, \bibinfo{eid}{063526}
+  (\bibinfo{year}{2013}), \eprint{1207.2722}.
+
+\bibitem[{\citenamefont{{Zheng} et~al.}(2013)\citenamefont{{Zheng}, {Zhang},
+  {Jing}, {Lin}, and {Pan}}}]{2013PhRvD..88j3510Z}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{{Zheng}}},
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{{Zhang}}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{{Jing}}},
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{{Lin}}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{{Pan}}},
+  \bibinfo{journal}{\prd} \textbf{\bibinfo{volume}{88}}, \bibinfo{eid}{103510}
+  (\bibinfo{year}{2013}), \eprint{1308.0886}.
+
+\bibitem[{\citenamefont{{White}}(2015)}]{2015MNRAS.450.3822W}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{White}}},
+  \bibinfo{journal}{\mnras} \textbf{\bibinfo{volume}{450}},
+  \bibinfo{pages}{3822} (\bibinfo{year}{2015}), \eprint{1504.03677}.
+
+\bibitem[{\citenamefont{{Schmittfull} et~al.}(2015)\citenamefont{{Schmittfull},
+  {Feng}, {Beutler}, {Sherwin}, and {Chu}}}]{2015PhRvD..92l3522S}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Schmittfull}}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{{Feng}}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{{Beutler}}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{{Sherwin}}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.~Y.} \bibnamefont{{Chu}}},
+  \bibinfo{journal}{\prd} \textbf{\bibinfo{volume}{92}}, \bibinfo{eid}{123522}
+  (\bibinfo{year}{2015}), \eprint{1508.06972}.
+
+\bibitem[{\citenamefont{{Pen}}(1999)}]{1999RSPTA.357.2561P}
+\bibinfo{author}{\bibfnamefont{U.-L.} \bibnamefont{{Pen}}},
+  \bibinfo{journal}{Philosophical Transactions of the Royal Society of London
+  Series A} \textbf{\bibinfo{volume}{357}}, \bibinfo{pages}{2561}
+  (\bibinfo{year}{1999}), \eprint{astro-ph/9904170}.
 
 \end{thebibliography}
