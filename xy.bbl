@@ -12,6 +12,12 @@
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
 
+\bibitem[{\citenamefont{{McQuinn} and {White}}(2016)}]{2016matt}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{McQuinn}}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{White}}},
+  \bibinfo{journal}{\jcap} \textbf{\bibinfo{volume}{1}}, \bibinfo{eid}{043}
+  (\bibinfo{year}{2016}), \eprint{1502.07389}.
+
 \bibitem[{\citenamefont{{Eisenstein} et~al.}(2007)\citenamefont{{Eisenstein},
   {Seo}, {Sirko}, and {Spergel}}}]{2007bao}
 \bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{{Eisenstein}}},
@@ -21,11 +27,15 @@
   \bibinfo{journal}{\apj} \textbf{\bibinfo{volume}{664}}, \bibinfo{pages}{675}
   (\bibinfo{year}{2007}), \eprint{astro-ph/0604362}.
 
-\bibitem[{\citenamefont{{McQuinn} and {White}}(2016)}]{2016matt}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{McQuinn}}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{White}}},
-  \bibinfo{journal}{\jcap} \textbf{\bibinfo{volume}{1}}, \bibinfo{eid}{043}
-  (\bibinfo{year}{2016}), \eprint{1502.07389}.
+\bibitem[{\citenamefont{{Schmittfull} et~al.}(2015)\citenamefont{{Schmittfull},
+  {Feng}, {Beutler}, {Sherwin}, and {Chu}}}]{2015PhRvD..92l3522S}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Schmittfull}}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{{Feng}}},
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{{Beutler}}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{{Sherwin}}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.~Y.} \bibnamefont{{Chu}}},
+  \bibinfo{journal}{\prd} \textbf{\bibinfo{volume}{92}}, \bibinfo{eid}{123522}
+  (\bibinfo{year}{2015}), \eprint{1508.06972}.
 
 \bibitem[{\citenamefont{{Crocce} and {Scoccimarro}}(2006)}]{2006crocce}
 \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Crocce}}} \bibnamefont{and}
@@ -76,16 +86,6 @@
 \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{White}}},
   \bibinfo{journal}{\mnras} \textbf{\bibinfo{volume}{450}},
   \bibinfo{pages}{3822} (\bibinfo{year}{2015}), \eprint{1504.03677}.
-
-\bibitem[{\citenamefont{{Schmittfull} et~al.}(2015)\citenamefont{{Schmittfull},
-  {Feng}, {Beutler}, {Sherwin}, and {Chu}}}]{2015PhRvD..92l3522S}
-\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{{Schmittfull}}},
-  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{{Feng}}},
-  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{{Beutler}}},
-  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{{Sherwin}}},
-  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{M.~Y.} \bibnamefont{{Chu}}},
-  \bibinfo{journal}{\prd} \textbf{\bibinfo{volume}{92}}, \bibinfo{eid}{123522}
-  (\bibinfo{year}{2015}), \eprint{1508.06972}.
 
 \bibitem[{\citenamefont{{Pen}}(1999)}]{1999RSPTA.357.2561P}
 \bibinfo{author}{\bibfnamefont{U.-L.} \bibnamefont{{Pen}}},

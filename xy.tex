@@ -55,8 +55,16 @@
 \date{\today}
 
 \begin{abstract}
-In this paper we introduce a new way to reconstruct BAO peaks in real space.
-...... \tcb{how to briefly summarize this?}
+We present a new method to reconstruct the primordial (linear) density field
+using the estimated nonlinear displacement field.
+The divergence of the displacement field, i.e., the differential motion of mass
+elements, gives the reconstructed density field.
+We solve the nonlinear displacement field in the 1D cosmology and show the 
+reconstruction results. 
+The new reconstruction algorithm recovers a large portion of the linear modes 
+and reduces the nonlinear damping scale significantly.
+The successful 1D reconstruction results imply the new algorithm should also 
+be a promising technique in the 3D case.
 \end{abstract}
 
 \pacs{}
@@ -66,8 +74,18 @@ In this paper we introduce a new way to reconstruct BAO peaks in real space.
 % sections are not used for PRL papers
 
 \section{Introduction}
-\tcb{do we need to add more content before the first paragraph?}
-
+The observed large-scale structure of the Universe, which contains a wealth of 
+information such as the nature of dark energy, neutrino masses, and primordial
+power spectrum etc, is a powerful probe of cosmology.
+The matter power spectrum has been measured to significant accuracy in the 
+current galaxy surveys and the precision will continue to improve with future 
+surveys. 
+However, the nonlinear gravitational evolution is a complicated process and 
+makes it difficult to model the small-scale inhomogenities. This has led to
+many theoretical challenges (see e.g. \cite{2016matt} for a brief review).
+On the other hand, various reconstruction techniques have been proposed to 
+reduce nonlinearities in the density field \cite{2007bao,2015PhRvD..92l3522S}. 
+ 
 The standard BAO reconstruction uses the negative
 Zel'dovich (linear) displacement to reverse the large-scale bulk flows 
 \cite{2007bao}. 
@@ -129,6 +147,8 @@ s(q)=x_i-iL/N,
 \eea
 where we have ordered the sheet lables $i$ from left to right, $L$ is the box
 size, and $N$ is the sheet number. 
+Here, $q=iL/N$ is the estimated initial Lagrangian position for the $i$th sheet
+at position $x_i$.
 If no shell crossing happens, the reconstructed displacement is exact up to
 a global shift. In the nonlinear regime once shell crossing occurs, the 
 estimated displacement field is quite noisy on the scale $\sim L/N$.
@@ -146,9 +166,8 @@ density field
 \bea
 \delta_r({q})=-\frac{\partial s(q)}{\partial q},
 \eea
-i.e., the differential
-motion of mass elements. \tcb{is this argument appropriate? shall we discuss 
-more here?}
+i.e., the differential motion of mass elements. 
+\tcb{is this argument appropriate? shall we discuss more here?}
 Reconstruction from the gridded density field can be implemented following
 the same principle, which we adopt in the following calculations.
 %=======================================
@@ -176,7 +195,7 @@ line), and reconstructed (thin solid line) fields.
 We also plot the nonlinear-linear (thick dotted line) and 
 reconstructed-linear (thin dotted line) cross-correlation power spectra.
 The wiggles in the reconstructed power spectrum are also much 
-more transparent than the nonlinear power spectrum.}
+more apparent than the nonlinear power spectrum.}
 \label{fig:ps}
 \end{figure}
 
@@ -187,8 +206,8 @@ more transparent than the nonlinear power spectrum.}
 \vspace{-0.7cm}
 \caption{The linear power spectrum (dashed line), the linear components in the
 nonlinear (thick solid line) and reconstructed (thin solid line) fields,
-the noise parts of the nonlinear (thick dotted line) and reconstructed (thin
-dotted line) fields. The noise terms dominate over the signals at 
+the noise power spectra of the nonlinear (thick dotted line) and reconstructed
+(thin dotted line) fields. The noise terms dominate over the signals at 
 $k\gtrsim0.07\ \mr{Mpc}^{-1}$ for the nonlinear field and $k_q\gtrsim0.24\ \mr{Mpc}^{-1}$
 for the reconstructed field.}
 \label{fig:pn}
@@ -235,7 +254,7 @@ The reconstructed power specrum is
 P_{\delta_r}(k_q)=b_r^2(k_q)P_{\delta_L}(k_q)+P_{n_r}(k_q).
 \eea
 Here, the subscript ``$q$'' denotes that the reconstructed field is given on the
-Lagraigian coordinate.
+Lagrangian coordinate.
 In Fig. \ref{fig:pn} we plot the linear components and the noise terms of
 the nonlinear and reconstructed fields.
 
@@ -279,12 +298,12 @@ P_{\tilde{\delta}_r}(k_q)=W_r^2(k_q)P_{\delta_L}(k_q)+W_r^2(k_q)
 {P_{n_r}(k_q)}/{b_r^2(k_q)},
 \eea
 where $W_r^2$ describes the dampling of the linear power spectrum. 
-The suppression of the linear power spectrum by $b^2$ can be fully corrected
-if $P_n$ is zero, while the damping due to $W_r^2$ can not.
+The suppression of the linear power spectrum described by $b^2$ can be fully 
+corrected if $P_n$ is zero, while the damping due to $W_r^2$ can not.
 The raw 
 nonlinear field $\delta$ is also filtered. 
-In Fig. \ref{fig:wf}, we plot the power spectra of the optimal reconstructed and
-nonlinear fields.
+In Fig. \ref{fig:wf}, we plot the power spectra of the optimal filtered 
+reconstructed and nonlinear fields.
 
 Figure \ref{fig:damp} shows the damping factors for the optimal filtered 
 nonlinear and reconstructed fields. The damping of the linear power spectrum is 
@@ -293,7 +312,7 @@ Gaussian BAO damping model,
 \bea
 \mathcal{D}(k)=\mr{e}^{-k^2\Sigma^2/2},
 \eea
-with $\Sigma=21.5\ \mr{Mpc}$ and $6.8\ \mr{Mpc}$ for the nonlinear and 
+with $\Sigma=21.5\ \mr{Mpc}$ and $6.8\ \mr{Mpc}$ for the filtered nonlinear and 
 reconstructed fields. 
 The new BAO reconstruction algorithm reduces the the nonlinear damping
 scale $\Sigma$ by 68 per cent, i.e., a factor of three. 
