@@ -94,9 +94,9 @@ The nonlinear density field is usually smoothed on the linear scale
 ($\sim10\ \mr{Mpc}/h$) to make the Zel'dovich approximation valid.
 Actually, the fully nonlinear displacement which describes the motion beyond
 the linear order (the Zel'dovich approximation) can be solved from the nonlinear
-density field.
-While the algorithm is complicated in the three spatial dimensions, it is 
-quite simple in the 1D case, which is basically the ordering of mass elements.
+density field. 
+While the algorithm is complicated in the three spatial dimensions, it is quite simple in the 1D case, which is basically the ordering of mass elements 
+(sheets).
 The 1D cosmological dynamics corresponds to the interaction of infinite sheets
 of matter where the force is independent of distance \cite{2016matt}.
 %The sheets are moving in a Hubble flow relative to one another and the surface
@@ -125,10 +125,13 @@ The Eulerian position ${x}$ of a mass element is
 {x}={q}+{\Psi}({q}),
 \eea
 where ${q}$ is the initial Lagrangian position of this mass element.
-In the simulations, mass elements (sheets) are labeled by their initial 
-Lagrangian coordinates. Once we know their Eulerian positions, the displacment 
-field is obtained. Observationally, we only have the unlabelled Eulerian 
-coordinates. 
+In simulations, mass elements (sheets) are labeled by their initial 
+Lagrangian coordinates. Once we know their Eulerian positions, the displacement 
+field is obtained. However, in observations we only have the unlabelled 
+Eulerian coordinates. 
+We can order the sheets according to their Eulerian coordinates from left to 
+right, regardless of their initial Lagrangian coordinates.
+The Eulerian position of the $i$th sheet from the left side is $x_i$.
 The estimated displacement at the Lagrangian coordinate $q=iL/N$ is 
 \bea
 s(q)=x_i-iL/N,
@@ -157,6 +160,11 @@ density field
 i.e., the differential motion of mass elements. 
 Reconstruction from the gridded density field can be implemented following
 the same principle, which we adopt in the following calculations.
+In this case, densities are computed on $N/n_p$ grids, where the average 
+density is $n_p$. We can calculate the averaged displacement of the first $n_p$ 
+particles from the gridded densities and then iterates $N/n_p-1$ times for the
+next $N-n_p$ particles. 
+This method directly gives the displacements on $N/n_p$ grids. 
 %=======================================
 
 \section{Simulations}
@@ -223,7 +231,7 @@ for the reconstructed field.}
 \label{fig:pn}
 \end{figure}
 
-To convenienty quantify the linear information $\delta_L$ in 
+To conveniently quantify the linear information $\delta_L$ in 
 the nonlinear density field $\delta$, we decompose the nonlinear density field
 $\delta$ as
 \begin{eqnarray}
@@ -257,7 +265,7 @@ For the reconstructed field $\delta_r(q)$, we also have
 \delta_r(k_q)=b_r(k_q)\delta_L(k_q)+n_r(k_q),
 \eea
 where $b_r(k_q)={P_{\delta_r\delta_L}(k_q)}/{P_{\delta_L}(k_q)}$.
-Similarily, the reconstructed power spectrum is given by
+Similarly, the reconstructed power spectrum is given by
 \bea
 P_{\delta_r}(k)=\mathcal{D}_r(k)P_{\delta_L}(k)+P_{n_r}(k),
 \eea
@@ -288,11 +296,11 @@ Gaussian BAO damping model,
 \eea
 with $\Sigma=16.5\ \mr{Mpc}$ and $4.9\ \mr{Mpc}$ for the nonlinear and 
 reconstructed fields. 
-The new BAO reconstruction algorithm reduces the the nonlinear damping
-scale $\Sigma$ by 70 per cent. 
+The new BAO reconstruction algorithm reduces the nonlinear damping
+scale $\Sigma$ by 70 percent. 
 The damping factor for the reconstructed field is above $0.9$ for 
 $k\lesssim0.1\ \mr{Mpc}^{-1}$. 
-However, the 100 per cent reconstruction, cancelling any nonlinear effects,
+However, the 100 percent reconstruction, cancelling any nonlinear effects,
 is still unachievable, as some information has been irreversibly lost. 
 
 \begin{figure}[tbp]
@@ -306,8 +314,9 @@ correlation coefficient (dashed line).}
 \label{fig:xcc}
 \end{figure}
 
-Reconstruction reduces the nonlinear damping $\mathcal{D}$ as well as the noise
-term $P_{n}$. To quantify the overall performance, we can use the cross-correltion coefficient 
+Reconstruction reduces the nonlinear damping $\mathcal{D}(k)$ as well as the 
+noise term $P_{n}(k)$. To quantify the overall performance, we can use the 
+cross-correlation coefficient 
 \bea
 r(k)=\frac{P_{\delta\delta_L}(k)}
 {\sqrt{P_{\delta}(k)P_{\delta_L}(k)}}
@@ -337,7 +346,7 @@ raw reconstructed field, we use the Wiener filter
 \bea
 W_r(k_q)=\frac{P_{\delta_L}(k_q)}{P_{\delta_L}(k_q)+P_{n_r}(k_q)/b_r^2(k_q)}.
 \eea
-Deconvolving $b_r$ and using the Wiener filtering, we obtain the optimal 
+Deconvolving $b_r$ and using the Wiener filter, we obtain the optimal 
 reconstructed field,
 \bea
 \tilde{\delta}_r(k_q)=\frac{\delta_r(k_q)}{b_r(k_q)}W_r(k_q).
@@ -397,7 +406,7 @@ a curl part, we can study the statistical properties of different components
 \cite{2013PhRvD..87f3526Z,2013PhRvD..88j3510Z}.
 These will be presented in future.
 
-The reconstructed nonlinear displacement field is also improtant for the 
+The reconstructed nonlinear displacement field is also important for the 
 current BAO reconstruction \cite{2007bao}, where the linear continuity
 equation is adopted to solve the displacement under the Zel'dovich 
 approximation. 
@@ -413,15 +422,15 @@ we expect the modeling of the reconstructed density field will be simplified.
 The Wiener filter is optimal for the case both the signal and the noise are
 Gaussian random fields. In Fig. \ref{fig:pdf}, the PDFs of the reconstructed
 density field and the noise are apparently nonGaussian.
-The reconstruction can be further improved using the nonlinear filtering
-rather than the Wiener fieltering \cite{1999RSPTA.357.2561P}.
+The reconstruction can be further improved using the nonlinear filter
+rather than the Wiener filter \cite{1999RSPTA.357.2561P}.
 We plan to study this in future.
 %=======================================
 
 \section{Acknowledgements}
 We are very grateful to Matthew McQuinn for providing the 1D $N$-body 
 simulations and helpful comments on the manuscript.
-We also thank Yu Yu and Tian-Xiang Mao for useful discussions.
+We also thank Yu Yu, Tian-Xiang Mao and Wen-Xiao Xu for useful discussions.
 We acknowledge the support of the Chinese MoST 863 program under Grant 
 No. 2012AA121701, the CAS Science Strategic Priority Research Program 
 XDB09000000, the NSFC under Grant No. 11373030, IAS at Tsinghua University, 
