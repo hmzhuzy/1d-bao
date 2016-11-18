@@ -79,7 +79,7 @@ power spectrum etc, is a powerful probe of cosmology.
 The matter power spectrum has been measured to significant accuracy in the 
 current galaxy surveys and the precision will continue to improve with future 
 surveys. 
-However, the nonlinear gravitational evolution is a complicated process and 
+However, the nonlinear gravitational clustering is a complicated process and 
 makes it difficult to model the small-scale inhomogenities. This has led to
 many theoretical challenges in developing perturbation theories 
 (see e.g. \cite{2016matt} for a brief review).
@@ -129,9 +129,8 @@ In simulations, mass elements (sheets) are labeled by their initial
 Lagrangian coordinates. Once we know their Eulerian positions, the displacement 
 field is obtained. However, in observations we only have the unlabelled 
 Eulerian coordinates. 
-We can order the sheets according to their Eulerian coordinates from left to 
-right, regardless of their initial Lagrangian coordinates.
-The Eulerian position of the $i$th sheet from the left side is $x_i$.
+Nevertheless, we can still order the sheets from left to right according to their
+Eulerian positions.
 The estimated displacement at the Lagrangian coordinate $q=iL/N$ is 
 \bea
 s(q)=x_i-iL/N,
@@ -160,11 +159,11 @@ density field
 i.e., the differential motion of mass elements. 
 Reconstruction from the gridded density field can be implemented following
 the same principle, which we adopt in the following calculations.
-In this case, densities are computed on $N/n_p$ grids, where the average 
-density is $n_p$. We can calculate the averaged displacement of the first $n_p$ 
-particles from the gridded densities and then iterates $N/n_p-1$ times for the
-next $N-n_p$ particles. 
-This method directly gives the displacements on $N/n_p$ grids. 
+%In this case, densities are computed on $N/n_p$ grids, where the average 
+%density is $n_p$.We can calculate the averaged displacement of the first $n_p$ 
+%particles from the gridded densities and then iterates $N/n_p-1$ times for the
+%next $N-n_p$ particles. 
+%This method directly gives the displacements on $N/n_p$ grids. 
 %=======================================
 
 \section{Simulations}
@@ -267,13 +266,13 @@ For the reconstructed field $\delta_r(q)$, we also have
 where $b_r(k_q)={P_{\delta_r\delta_L}(k_q)}/{P_{\delta_L}(k_q)}$.
 Similarly, the reconstructed power spectrum is given by
 \bea
-P_{\delta_r}(k)=\mathcal{D}_r(k)P_{\delta_L}(k)+P_{n_r}(k),
+P_{\delta_r}(k_q)=\mathcal{D}_r(k_q)P_{\delta_L}(k_q)+P_{n_r}(k_q),
 \eea
-where $\mathcal{D}_r(k)=b^2_r(k)$.
+where $\mathcal{D}_r(k_q)=b^2_r(k_q)$.
 Here, the subscript ``$q$'' denotes that the reconstructed field is given on the
 Lagrangian coordinate.
 In Fig. \ref{fig:pn}, we plot the linear components and the noise terms of
-the nonlinear and reconstructed fields.
+the nonlinear and reconstructed power spectra.
 
 \begin{figure}[tbp]
 \begin{center}
@@ -352,7 +351,6 @@ reconstructed field,
 \tilde{\delta}_r(k_q)=\frac{\delta_r(k_q)}{b_r(k_q)}W_r(k_q).
 \eea
 The power spectrum of the optimal reconstructed field $\tilde{\delta}_r$ is 
-given by
 \bea
 P_{\tilde{\delta}_r}(k_q)=W_r^2(k_q)P_{\delta_L}(k_q)+W_r^2(k_q)
 {P_{n_r}(k_q)}/{b_r^2(k_q)}.
